@@ -376,6 +376,116 @@
             text-align: right;
         }
 
+        /* 资产列表 */
+        .assets-section {
+            background: var(--bg-primary);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .assets-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .assets-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--neutral-700);
+        }
+
+        .assets-view-all {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--primary-green);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .asset-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid var(--neutral-100);
+        }
+
+        .asset-item:last-child {
+            border-bottom: none;
+        }
+
+        .asset-item:hover {
+            opacity: 0.8;
+        }
+
+        .asset-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--neutral-50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .asset-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .asset-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--neutral-700);
+        }
+
+        .asset-amount {
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--neutral-400);
+        }
+
+        .asset-value {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 4px;
+        }
+
+        .asset-price {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--neutral-700);
+        }
+
+        .asset-change {
+            font-size: 12px;
+            font-weight: 500;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .asset-change.positive {
+            color: var(--success-600);
+            background: rgba(52, 199, 89, 0.1);
+        }
+
+        .asset-change.negative {
+            color: var(--danger-600);
+            background: rgba(246, 76, 76, 0.1);
+        }
+
         /* 动画 */
         @keyframes fadeInUp {
             from {
@@ -487,6 +597,95 @@
                     </div>
                     <span class="action-label" data-i18n="referral">Referral</span>
                 </button>
+            </div>
+        </div>
+
+        <!-- 虚拟资产列表 -->
+        <div class="assets-section">
+            <div class="assets-header">
+                <h3 class="assets-title" data-i18n="crypto-assets">Crypto Assets</h3>
+                <button class="assets-view-all" data-i18n="view-all">View All</button>
+            </div>
+            <div class="assets-list">
+                <div class="asset-item">
+                    <div class="asset-icon">₿</div>
+                    <div class="asset-info">
+                        <div class="asset-name">Bitcoin</div>
+                        <div class="asset-amount">0.0234 BTC</div>
+                    </div>
+                    <div class="asset-value">
+                        <div class="asset-price">$1,245.67</div>
+                        <div class="asset-change positive">+2.45%</div>
+                    </div>
+                </div>
+
+                <div class="asset-item">
+                    <div class="asset-icon">Ξ</div>
+                    <div class="asset-info">
+                        <div class="asset-name">Ethereum</div>
+                        <div class="asset-amount">1.5678 ETH</div>
+                    </div>
+                    <div class="asset-value">
+                        <div class="asset-price">$3,456.89</div>
+                        <div class="asset-change positive">+1.23%</div>
+                    </div>
+                </div>
+
+                <div class="asset-item">
+                    <div class="asset-icon">
+                        <img src="https://www.figma.com/api/mcp/asset/cb3ba18c-9a6f-437d-a6df-6b1b5101c792" alt="USDT" style="width: 32px; height: 32px;">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-name">Tether</div>
+                        <div class="asset-amount">5,000.00 USDT</div>
+                    </div>
+                    <div class="asset-value">
+                        <div class="asset-price">$5,000.00</div>
+                        <div class="asset-change positive">+0.01%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 法币资产列表 -->
+        <div class="assets-section">
+            <div class="assets-header">
+                <h3 class="assets-title" data-i18n="fiat-assets">Fiat Assets</h3>
+                <button class="assets-view-all" data-i18n="view-all">View All</button>
+            </div>
+            <div class="assets-list">
+                <div class="asset-item">
+                    <div class="asset-icon">$</div>
+                    <div class="asset-info">
+                        <div class="asset-name" data-i18n="usd">US Dollar</div>
+                        <div class="asset-amount">2,500.00 USD</div>
+                    </div>
+                    <div class="asset-value">
+                        <div class="asset-price">$2,500.00</div>
+                    </div>
+                </div>
+
+                <div class="asset-item">
+                    <div class="asset-icon">R$</div>
+                    <div class="asset-info">
+                        <div class="asset-name" data-i18n="brl">Brazilian Real</div>
+                        <div class="asset-amount">1,234.56 BRL</div>
+                    </div>
+                    <div class="asset-value">
+                        <div class="asset-price">$245.67</div>
+                    </div>
+                </div>
+
+                <div class="asset-item">
+                    <div class="asset-icon">$</div>
+                    <div class="asset-info">
+                        <div class="asset-name" data-i18n="mxn">Mexican Peso</div>
+                        <div class="asset-amount">5,678.90 MXN</div>
+                    </div>
+                    <div class="asset-value">
+                        <div class="asset-price">$312.45</div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -603,6 +802,12 @@
                 'deposit': 'Deposit',
                 'send': 'Send',
                 'referral': 'Referral',
+                'crypto-assets': 'Crypto Assets',
+                'fiat-assets': 'Fiat Assets',
+                'view-all': 'View All',
+                'usd': 'US Dollar',
+                'brl': 'Brazilian Real',
+                'mxn': 'Mexican Peso',
                 'promo-text': 'Send Crypto, Receive BRL or MXN',
                 'promo-highlight': 'Now with 2% cashback!',
                 'learn': 'Learn',
@@ -620,6 +825,12 @@
                 'deposit': '充值',
                 'send': '发送',
                 'referral': '推荐',
+                'crypto-assets': '虚拟资产',
+                'fiat-assets': '法币资产',
+                'view-all': '查看全部',
+                'usd': '美元',
+                'brl': '巴西雷亚尔',
+                'mxn': '墨西哥比索',
                 'promo-text': '发送加密货币，接收巴西雷亚尔或墨西哥比索',
                 'promo-highlight': '现在享受 2% 返现！',
                 'learn': '学习',
